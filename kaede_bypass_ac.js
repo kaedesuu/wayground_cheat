@@ -62,7 +62,7 @@
   const original_xhr = window.XMLHttpRequest;
   const o_fetch = window.fetch;
 
-  const blacklist_url = (url) => url.includes("playerinfraction") || url.include("_anserver");
+  const blacklist_url = (url) => url.includes("playerinfraction") || url.includes("_anserver");
 
   window.XMLHttpRequest = class extends original_xhr {
     xhr_url;
