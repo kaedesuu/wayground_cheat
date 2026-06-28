@@ -3,6 +3,25 @@
 // The script will remove "Your teacher has been alerted that you left the tab." toast message.
 
 ;(() => {
+  // Prevent sending fullscreen mode on start when user is on route "/join/pre-game/"
+  const _old_request_fullscreen = Element.prototype.requestFullscreen;
+  const _old_replace_state = window?.history?.replaceState || history?.replaceState;
+  if (window.location.href?.toString().includes("/join/pre-game")) {
+    Element.prototype.requestFullscreen = () => {};
+  }
+
+  window.history.replaceState = (...data) => {
+    // Check for changes in the url
+    if (window.location.href?.toString().includes("/join/pre-game")) {
+      Element.prototype.requestFullscreen = () => {};
+    } else if (window.location.href?.toString().includes("/join/game")) {
+      Element.prototype.requestFullscreen = _old_request_fullscreen;
+    }
+
+    // Call the old .replaceState() function
+    return _old_replace_state.apply(window.history, data);
+  }
+
   // Delete the blocking element
   let _removal_modaL_container = setInterval(() => {
     const model_container = document.getElementsByClassName("modal-container");
