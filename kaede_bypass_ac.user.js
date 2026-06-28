@@ -4,6 +4,7 @@
 // @version      2025-10-09
 // @description  bypass new wayground's "anti-cheating"
 // @author       kaede
+// @match        https://wayground.com/join/pre-game/*
 // @match        https://wayground.com/join/game/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=wayground.com
 // @grant        none
