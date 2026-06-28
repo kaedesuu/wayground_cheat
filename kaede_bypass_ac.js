@@ -60,6 +60,7 @@
 
   // from the login script
   const original_xhr = window.XMLHttpRequest;
+  const o_fetch = window.fetch;
 
   class injected_xhr extends original_xhr {
     xhr_url;
@@ -74,6 +75,11 @@
 
       return super.send(body);
     }
+  }
+
+  window.fetch = (...data) => {
+    if (data[0]?.toString().toLowerCase().replaceAll(" ", "").replaceAll("-", "").includes("playerinfraction")) return;
+    return o_fetch(...data);
   }
 
   window.XMLHttpRequest = injected_xhr;
