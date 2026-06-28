@@ -2,7 +2,7 @@
 // @name         kaede's quizizz anti-cheat bypass (bypass fullscreen)
 /
 // @version      2025-10-09
-// @description  bypass new wayground's "anti-cheating"
+// @description  bypass wayground's "anti-cheating"
 // @author       kaede
 // @match        https://wayground.com/join/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=wayground.com
